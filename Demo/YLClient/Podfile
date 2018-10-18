@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '8.0'
+
+targetsArray = ['YLClient', 'YLClient1406', 'YLClient1390']
+# 循环
+targetsArray.each do |t|
+    target t do
+        pod 'SDWebImage', '~> 4.0'
+        pod 'AFNetworking', '~> 3.0'
+        pod 'MJRefresh'
+        pod 'UMengAnalytics-NO-IDFA'
+        pod 'JSONModel'
+        pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.0.0'
+        pod 'WebViewJavascriptBridge', '~> 6.0'
+        pod 'BMKLocationKit', '~> 1.3.0.2'
+        pod 'SVProgressHUD'
+    end
+
+
+  
+end
