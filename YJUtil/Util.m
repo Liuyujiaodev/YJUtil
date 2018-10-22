@@ -11,7 +11,7 @@
 
 #import "Util.h"
 #import "Reachability.h"
-#import <CommonCrypto/CommonDigest.h> //MD_5
+//#import <CommonCrypto/CommonDigest.h> //MD_5
 #import <sys/utsname.h>
 #import  <AdSupport/AdSupport.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
@@ -109,62 +109,6 @@
 
 
 #pragma mark
-#pragma mark - 编解码
-
-+ (NSString*)getEncodingStr:(NSDictionary*)dictionary {
-    //生成stock
-    NSString* token = [self getRandomStr];
-    //生成sign签名
-    NSString* sign = [self getSignWithDic:dictionary andToken:token];
-    
-    
-    //生成最终的dictionary
-    NSMutableDictionary* newDic = [NSMutableDictionary dictionaryWithDictionary:dictionary];
-    [newDic setValue:token forKey:@"token"];
-    [newDic setValue:sign forKey:@"sign"];
-    
-    NSString* jsonParameters = [self getJsonWith:newDic];//{"phone":"123","psw"}phone:123 psw:123
-    
-    NSString* ret = [jsonParameters base64EncodedString];//进行base64编码
-    NSString* finialString = [self changeString:ret];//交换位置
-    
-    return finialString;
-}
-
-
-#pragma mark
-#pragma mark - 获取随机字符串 (16位)
-
-+ (NSString*)getRandomStr {
-    char data[16];
-    
-    for (int x=0; x <16; data[x++] = (char)('A' + (arc4random_uniform(26))));
-    
-    return [[NSString alloc] initWithBytes:data length:16 encoding:NSUTF8StringEncoding];
-}
-
-
-#pragma mark
-#pragma mark - 生成签名
-
-+ (NSString*)getSignWithDic:(NSDictionary*) dic andToken:(NSString*)token {
-    token = [NSString stringWithFormat:@"%@", token];
-    NSString* newStr = [token stringByAppendingString:[[self getUrlEncodingStr:dic] stringByAppendingString:token]];
-    //md5编码，生成签名
-    const char *original_str = [newStr UTF8String];
-    unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(original_str, strlen(original_str), result);
-    NSMutableString *hash = [NSMutableString string];
-    for (int i = 0; i < 16; i++)
-    {
-        [hash appendFormat:@"%02X", result[i]];
-    }
-    NSString *mdfiveString = [hash lowercaseString];
-    return mdfiveString;
-}
-
-
-#pragma mark
 #pragma mark - 做URL的编码
 
 + (NSString *)stringByUrlEncoding:(NSString*)str {
@@ -202,19 +146,6 @@
     return str;
 }
 
-+ (NSString *)md5:(NSString *)input
-{
-    const char *cStr = [input UTF8String];
-    unsigned char digest[16];
-    CC_MD5( cStr, strlen(cStr), digest ); // This is the md5 call
-    
-    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
-    
-    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
-        [output appendFormat:@"%02x", digest[i]];
-    
-    return  output;
-}
 
 #pragma mark
 #pragma mark - 交换两个字符（后四位不变）
@@ -286,24 +217,6 @@
         return dic;
     } else
         return nil;
-}
-
-#pragma mark
-#pragma mark - 验证签名是否正确
-
-+ (BOOL)checkSign:(NSDictionary*)dictionary {
-    NSMutableDictionary* dic = [dictionary mutableCopy];
-    NSString* sign = [dic objectForKey:@"sign"];
-    NSString* token = [dic objectForKey:@"token"];
-    
-    [dic removeObjectForKey:@"sign"];
-    [dic removeObjectForKey:@"token"];
-    
-    if ([sign isEqualToString:[self getSignWithDic:dic andToken:token]]) {
-        return YES;
-    }
-    NSLog(@"\n******************\n\n 签名验证错误! \n\n******************");
-    return NO;
 }
 
 + (BOOL)checkRequest:(NSDictionary*)dic {
