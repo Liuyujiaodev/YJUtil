@@ -20,11 +20,12 @@ s.description = %{
 。
 }
 s.source_files = "YJUtil/**/*.{h,m}"
-s.frameworks = 'Foundation', 'UIKit', 'CommonCrypto','AdSupport','CoreTelephony','CoreLocation
-s.requires_arc = true
-s.platform = :ios, '8.0'
+s.frameworks = 'Foundation', 'UIKit', 'CommonCrypto','AdSupport','CoreTelephony','CoreLocation'
+
 s.dependency "Reachability"
 s.dependency "YJBase64"
 s.dependency "YJCategory"
 
+s.requires_arc = true
+s.platform = :ios, '8.0'
 end

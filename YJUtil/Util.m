@@ -6,13 +6,6 @@
 //  Copyright © 2016年 刘玉娇. All rights reserved.
 //
 
-
-#ifdef DEBUG
-#define DLog(...) NSLog(__VA_ARGS__)
-#else
-#define DLog(...)
-#endif
-
 #define APPWidth [UIScreen mainScreen].bounds.size.width
 #define APPHeight [UIScreen mainScreen].bounds.size.height
 
@@ -253,7 +246,7 @@
         }
     }
     else
-        DLog(@"Not a valid JSON object: %@", dic);
+        NSLog(@"Not a valid JSON object: %@", dic);
     return json;
 }
 
@@ -309,7 +302,7 @@
     if ([sign isEqualToString:[self getSignWithDic:dic andToken:token]]) {
         return YES;
     }
-    DLog(@"\n******************\n\n 签名验证错误! \n\n******************");
+    NSLog(@"\n******************\n\n 签名验证错误! \n\n******************");
     return NO;
 }
 
@@ -330,7 +323,7 @@
     if (status == 0) {
         isRequestOk = YES;
     } else {
-        DLog(@"\n******************\n status==0 \n******************");
+        NSLog(@"\n******************\n status==0 \n******************");
         isRequestOk = NO;
     }
     BOOL isSignOk = [self checkSign:dic];
@@ -686,7 +679,7 @@
                                                         attributes:nil
                                                              error:&error])
         {
-            DLog(@"Create directory tmp/cachedModels directory error: %@", error);
+            NSLog(@"Create directory tmp/cachedModels directory error: %@", error);
             return nil;
         }
     }
@@ -701,14 +694,14 @@
         [[NSFileManager defaultManager] removeItemAtPath:[self filePathForDocument:filePath] error:&error];
         
         if (error) {
-            DLog(@"移除文件失败，错误信息：%@", error);
+            NSLog(@"移除文件失败，错误信息：%@", error);
         }
         else {
-            DLog(@"成功移除文件");
+            NSLog(@"成功移除文件");
         }
     }
     else {
-        DLog(@"文件不存在");
+        NSLog(@"文件不存在");
     }
 }
 
@@ -726,7 +719,7 @@ NSString* getArchivePathForId(NSString* modelId) {
                                                         attributes:nil
                                                              error:&error])
         {
-            DLog(@"Create directory tmp/cachedModels directory error: %@", error);
+            NSLog(@"Create directory tmp/cachedModels directory error: %@", error);
             return nil;
         }
     }
@@ -759,14 +752,14 @@ NSString* getArchivePathForId(NSString* modelId) {
         [[NSFileManager defaultManager] removeItemAtPath:getArchivePathForId(modelId) error:&error];
         
         if (error) {
-            DLog(@"移除文件失败，错误信息：%@", error);
+            NSLog(@"移除文件失败，错误信息：%@", error);
         }
         else {
-            DLog(@"成功移除文件");
+            NSLog(@"成功移除文件");
         }
     }
     else {
-        DLog(@"文件不存在");
+        NSLog(@"文件不存在");
     }
 }
 
