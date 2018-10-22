@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
 s.name     = "YJUtil"
-s.version  = "1.0.0"
+s.version  = "1.0.1"
 s.license  = "MIT"
 s.summary  = "iOS工具类"
 s.homepage = "https://github.com/Liuyujiaodev/YJUtil.git"
@@ -23,4 +23,5 @@ s.source_files = "YJUtil/**/*.{h,m}"
 s.frameworks = 'Foundation', 'UIKit'
 s.requires_arc = true
 s.platform = :ios, '8.0'
+s.dependency "Reachability"
 end

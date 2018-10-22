@@ -14,6 +14,12 @@
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
 
+#ifdef DEBUG
+#define DLog(...) NSLog(__VA_ARGS__)
+#else
+#define DLog(...)
+#endif
+
 @implementation Util
 
 + (BOOL)isConnectionAvailable {
