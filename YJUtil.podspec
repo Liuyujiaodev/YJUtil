@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 
-s.name     = "Util"
+s.name     = "YJUtil"
 s.version  = "1.0.0"
 s.license  = "MIT"
 s.summary  = "iOS工具类"
@@ -19,7 +19,7 @@ s.source       = { :git => "https://github.com/Liuyujiaodev/YJUtil.git", :tag =>
 s.description = %{
 。
 }
-s.source_files = "YJUtil","YJUtil/**/*.{h,m}"
+s.source_files = "YJUtil/**/*.{h,m}"
 s.frameworks = 'Foundation', 'UIKit'
 s.requires_arc = true
 s.platform = :ios, '8.0'
