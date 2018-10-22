@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Util : NSObject
 + (NSString*)getRandomStr;
@@ -141,21 +142,6 @@
  *  拿到设备的类型
  */
 + (NSString *)getDeviceType;
-/**
- *  用push的方式实现present的动画
- *
- *  @param fromVC 从哪个vc
- *  @param toVC   到哪个vc
- */
-+ (void)pushAnimationFromVC:(UIViewController*)fromVC toVC:(UIViewController*)toVC;
-
-/**
- *  把页面pop出去但是是用的present的动画
- *
- *  @param fromVC 从哪个vc开始
- *  @param toVC   到哪个vc结束
- */
-+ (void)popAnimationFromVC:(UIViewController*)fromVC toVC:(UIViewController*)toVC;
 
 /**
  *  md5 签名
@@ -237,6 +223,5 @@
 + (NSString*_Nonnull)jsonStrWithArray:(NSArray*_Nonnull)array;
 
 + (void)getBtnAuthFromServer;
-+ (NSArray*_Nullable)getBtnAuthId;
 + (BOOL)checkLocation;
 @end

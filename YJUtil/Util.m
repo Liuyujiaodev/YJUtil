@@ -6,6 +6,16 @@
 //  Copyright © 2016年 刘玉娇. All rights reserved.
 //
 
+
+#ifdef DEBUG
+#define DLog(...) NSLog(__VA_ARGS__)
+#else
+#define DLog(...)
+#endif
+
+#define APPWidth [UIScreen mainScreen].bounds.size.width
+#define APPHeight [UIScreen mainScreen].bounds.size.height
+
 #import "Util.h"
 #import "Reachability.h"
 #import <CommonCrypto/CommonDigest.h> //MD_5
@@ -13,12 +23,9 @@
 #import  <AdSupport/AdSupport.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
 #import <CoreTelephony/CTCarrier.h>
-
-#ifdef DEBUG
-#define DLog(...) NSLog(__VA_ARGS__)
-#else
-#define DLog(...)
-#endif
+#import "CommonCategory.h"
+#import "Base64.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation Util
 
@@ -460,33 +467,6 @@
     return dateString;
 }
 
-+ (void)pushAnimationFromVC:(UIViewController*)fromVC toVC:(UIViewController*)toVC {
-    
-    CATransition *transition = [CATransition animation];
-    transition.duration = 0.38;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    transition.type = kCATransitionMoveIn;
-    transition.subtype = kCATransitionFromTop;
-    [fromVC.navigationController.view.layer addAnimation:transition forKey:nil];
-    
-    fromVC.navigationController.navigationBarHidden = NO;
-    
-    [fromVC.navigationController pushViewController:toVC animated:NO];
-}
-
-+ (void)popAnimationFromVC:(UIViewController*)fromVC toVC:(UIViewController*)toVC {
-    CATransition *transition = [CATransition animation];
-    transition.duration =0.38;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    transition.type = kCATransitionReveal;
-    transition.subtype = kCATransitionFromBottom;
-    [fromVC.navigationController.view.layer addAnimation:transition forKey:nil];
-    fromVC.navigationController.navigationBarHidden = NO;
-    
-    [fromVC.navigationController popToViewController:toVC animated:NO];
-    
-}
-
 
 
 /**
@@ -894,16 +874,7 @@ NSString* getArchivePathForId(NSString* modelId) {
         [attributeStr addAttribute:NSFontAttributeName value:afterFont range:NSMakeRange([str length]-1, 1)];
         return attributeStr;
     }
-    return @"";
-}
-
-
-+ (NSMutableAttributedString*)attributeStrWithStr:(NSString*)str {
-    if (str) {
-        NSMutableAttributedString* attributeStr = [self attributeStrWithStr:str withBeforFont:kCOMMON_FONT_MEDIUM_30 afterFont:kCOMMON_FONT_MEDIUM_16];
-        return attributeStr;
-    }
-    return @"";
+    return nil;
 }
 
 + (BOOL)isToday:(NSString*)timestamp {
@@ -1002,9 +973,6 @@ NSString* getArchivePathForId(NSString* modelId) {
     //    }];
 }
 
-+ (NSArray*)getBtnAuthId {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:kBUTTON_AUTH];
-}
 
 + (BOOL)checkLocation {
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {

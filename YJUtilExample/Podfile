@@ -1,0 +1,9 @@
+platform:ios, ‘9.0’
+inhibit_all_warnings!
+
+target :YJUtilExample do
+    pod 'YJBase64', '~>1.0.1'
+    pod 'Reachability'
+    pod 'YJCategory'
+
+end
