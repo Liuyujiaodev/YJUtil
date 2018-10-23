@@ -15,9 +15,9 @@
 
     NSDictionary* dic = [NSDictionary dictionaryWithContentsOfFile:path];
     NSString* bundleId = [[NSBundle mainBundle] bundleIdentifier];
-    NSDictionary* companyDic = [dic dicWithKey:bundleId];
+    NSDictionary* companyDic = [dic objectForKey:bundleId];
     if (companyDic && companyDic.allKeys.count > 0) {
-        return [companyDic stringWithKey:@"cid"];
+        return [companyDic objectForKey:@"cid"];
     }
     return nil;
 }
@@ -27,9 +27,9 @@
     
     NSDictionary* dic = [NSDictionary dictionaryWithContentsOfFile:path];
     NSString* bundleId = [[NSBundle mainBundle] bundleIdentifier];
-    NSDictionary* companyDic = [dic dicWithKey:bundleId];
+    NSDictionary* companyDic = [dic objectForKey:bundleId];
     if (companyDic && companyDic.allKeys.count > 0) {
-        return [companyDic stringWithKey:@"baiduMapKey"];
+        return [companyDic objectForKey:@"baiduMapKey"];
     }
     return BAIDU_MAP_KEY;
 }
@@ -39,9 +39,9 @@
     
     NSDictionary* dic = [NSDictionary dictionaryWithContentsOfFile:path];
     NSString* bundleId = [[NSBundle mainBundle] bundleIdentifier];
-    NSDictionary* companyDic = [dic dicWithKey:bundleId];
+    NSDictionary* companyDic = [dic objectForKey:bundleId];
     if (companyDic && companyDic.allKeys.count > 0) {
-        return [companyDic stringWithKey:@"loginBg"];
+        return [companyDic objectForKey:@"loginBg"];
     }
     return @"default";
 }
