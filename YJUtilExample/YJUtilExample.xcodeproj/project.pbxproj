@@ -10,7 +10,6 @@
 		09A413FA217F1D0D00AD440F /* YLCompanySettingUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A413F2217F1D0C00AD440F /* YLCompanySettingUtil.m */; };
 		09A413FB217F1D0D00AD440F /* YLUserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A413F4217F1D0C00AD440F /* YLUserDataManager.m */; };
 		09A413FC217F1D0D00AD440F /* YLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A413F6217F1D0D00AD440F /* YLUtil.m */; };
-		09A413FD217F1D0D00AD440F /* YLAuthUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A413F9217F1D0D00AD440F /* YLAuthUtil.m */; };
 		09D709B0217DAC8100775D41 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D709AF217DAC8100775D41 /* AppDelegate.m */; };
 		09D709B3217DAC8100775D41 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09D709B2217DAC8100775D41 /* ViewController.m */; };
 		09D709B6217DAC8100775D41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09D709B4217DAC8100775D41 /* Main.storyboard */; };
@@ -25,11 +24,9 @@
 		09A413F2217F1D0C00AD440F /* YLCompanySettingUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLCompanySettingUtil.m; sourceTree = "<group>"; };
 		09A413F3217F1D0C00AD440F /* YLCompanySettingUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLCompanySettingUtil.h; sourceTree = "<group>"; };
 		09A413F4217F1D0C00AD440F /* YLUserDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLUserDataManager.m; sourceTree = "<group>"; };
-		09A413F5217F1D0D00AD440F /* YLAuthUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLAuthUtil.h; sourceTree = "<group>"; };
 		09A413F6217F1D0D00AD440F /* YLUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLUtil.m; sourceTree = "<group>"; };
 		09A413F7217F1D0D00AD440F /* YLUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLUtil.h; sourceTree = "<group>"; };
 		09A413F8217F1D0D00AD440F /* YLUserDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLUserDataManager.h; sourceTree = "<group>"; };
-		09A413F9217F1D0D00AD440F /* YLAuthUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLAuthUtil.m; sourceTree = "<group>"; };
 		09D709AB217DAC8100775D41 /* YJUtilExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YJUtilExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09D709AE217DAC8100775D41 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		09D709AF217DAC8100775D41 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -97,8 +94,6 @@
 		09D709C4217DB79400775D41 /* YJUtil */ = {
 			isa = PBXGroup;
 			children = (
-				09A413F5217F1D0D00AD440F /* YLAuthUtil.h */,
-				09A413F9217F1D0D00AD440F /* YLAuthUtil.m */,
 				09A413F3217F1D0C00AD440F /* YLCompanySettingUtil.h */,
 				09A413F2217F1D0C00AD440F /* YLCompanySettingUtil.m */,
 				09A413F8217F1D0D00AD440F /* YLUserDataManager.h */,
@@ -269,7 +264,6 @@
 				09D709BE217DAC8300775D41 /* main.m in Sources */,
 				09A413FC217F1D0D00AD440F /* YLUtil.m in Sources */,
 				09D709B0217DAC8100775D41 /* AppDelegate.m in Sources */,
-				09A413FD217F1D0D00AD440F /* YLAuthUtil.m in Sources */,
 				09A413FB217F1D0D00AD440F /* YLUserDataManager.m in Sources */,
 				09A413FA217F1D0D00AD440F /* YLCompanySettingUtil.m in Sources */,
 				09D709C7217DB79400775D41 /* Util.m in Sources */,

@@ -31,7 +31,7 @@
     if (companyDic && companyDic.allKeys.count > 0) {
         return [companyDic objectForKey:@"baiduMapKey"];
     }
-    return BAIDU_MAP_KEY;
+    return @"KXcuraG678jTjfzmZlC9OfCDIAcrSNHX";
 }
 
 +(NSString*)getLoginBgImageStr {

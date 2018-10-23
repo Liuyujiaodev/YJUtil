@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YLUserDataManager.h"
 
 @interface YLUtil : NSObject
 

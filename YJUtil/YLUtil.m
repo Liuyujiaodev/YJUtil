@@ -12,7 +12,7 @@
 
 + (BOOL)isLogin {
     
-    if ([YLUserDataManager getCuid] != nil && ![[YLUserDataManager getCuid] isEmptyStr]) {
+    if ([YLUserDataManager getCuid] != nil && ![[YLUserDataManager getCuid] isEqualToString:@""]) {
         return YES;
     }
     return NO;
