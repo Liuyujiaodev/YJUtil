@@ -887,4 +887,21 @@ NSString* getArchivePathForId(NSString* modelId) {
         return NO;
     }
 }
+
++ (NSString*)getUrlSchemes {
+    NSDictionary *infoDic = [[NSBundle mainBundle] infoDictionary];
+    
+    NSDictionary *bundleUrltypes = [infoDic objectForKey:@"CFBundleURLTypes"];
+    NSString* urlSchemes;
+    for (NSDictionary* types in bundleUrltypes) {
+        if ([[types objectForKey:@"CFBundleURLName"] isEqualToString:Bundle_Identifier]) {
+            NSArray* allUrlSchemes = (NSArray*)[types objectForKey:@"CFBundleURLSchemes"];
+            if (allUrlSchemes.count > 0) {
+                urlSchemes = [allUrlSchemes objectAtIndex:0];
+                return urlSchemes;
+            }
+        }
+    }
+    return nil;
+}
 @end

@@ -224,4 +224,5 @@
 
 + (void)getBtnAuthFromServer;
 + (BOOL)checkLocation;
++ (NSString*)getUrlSchemes;
 @end
