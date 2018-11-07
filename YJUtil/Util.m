@@ -8,6 +8,7 @@
 
 #define APPWidth [UIScreen mainScreen].bounds.size.width
 #define APPHeight [UIScreen mainScreen].bounds.size.height
+#define Bundle_Identifier   [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"]
 
 #import "Util.h"
 #import "Reachability.h"
